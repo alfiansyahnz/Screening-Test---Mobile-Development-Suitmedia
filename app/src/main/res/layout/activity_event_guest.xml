@@ -21,7 +21,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin"
         android:layout_toEndOf="@id/tv_name"
-        android:text="Alfiansyah nu rzufa"
         android:textSize="14sp" />
 
 

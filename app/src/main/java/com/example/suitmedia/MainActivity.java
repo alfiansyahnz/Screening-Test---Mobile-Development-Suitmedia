@@ -1,6 +1,8 @@
 package com.example.suitmedia;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,22 +21,28 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.btn_next)
     Button btn_next;
 
+    static final String NAME = "name";
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String name = et_name.getText().toString();
-                Toast.makeText(MainActivity.this, "Hello" + name, Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Hello" + name, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, EventGuestActivity.class);
-                intent.putExtra("name", name);
+                intent.putExtra(NAME,name );
                 startActivity(intent);
             }
         });
+
 
     }
 
