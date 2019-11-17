@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EventGuestActivity">
+
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_margin="@dimen/margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nama : "
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_toEndOf="@id/tv_name"
+        android:text="Alfiansyah nu rzufa"
+        android:textSize="14sp" />
+
+
+    <Button
+        android:id="@+id/btn_event"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_below="@id/tv_username"
+        android:textAllCaps="false"
+        android:text="Pilih Event"/>
+
+    <Button
+        android:id="@+id/btn_guest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin"
+        android:layout_marginEnd="@dimen/margin"
+        android:layout_below="@id/btn_event"
+        android:textAllCaps="false"
+        android:text="Pilih Guest"/>
+
+
+</RelativeLayout>
