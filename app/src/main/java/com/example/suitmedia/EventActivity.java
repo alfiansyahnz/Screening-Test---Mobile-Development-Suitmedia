@@ -19,6 +19,9 @@ public class EventActivity extends AppCompatActivity {
     @BindView(R.id.rv_event)
     RecyclerView mRecyclerView;
 
+
+    private boolean isFetchingMovies;
+    private int currentPage = 0;
     private ArrayList<Event> list = new ArrayList<>();
     private EventAdapter mEventAdapter;
 
@@ -40,5 +43,7 @@ public class EventActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mEventAdapter);
 
     }
+
+
 
 }

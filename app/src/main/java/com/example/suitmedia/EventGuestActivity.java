@@ -26,12 +26,15 @@ public class EventGuestActivity extends AppCompatActivity {
     @BindView(R.id.btn_guest)
     Button btn_guest;
 
-    String getUsername, getButtonName;
+    String getUsername, getButtonName, getGetButtonNameGuest;
     SharedPreferences mSharedPreferences;
     static final String myprefrence = "mypref";
     static final String NAME = "name";
-    static final String BUTTON = "Pilih Event";
-    String nameSave;
+    static final String EVENT = "nameEvent";
+    static final String GUEST = "nameGuest";
+
+
+    String nameSave, eventSave, guestSave;
 
 
     @Override
@@ -40,9 +43,14 @@ public class EventGuestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_event_guest);
         ButterKnife.bind(this);
 
-        if (null != getIntent() && !TextUtils.isEmpty(getIntent().getStringExtra("nameEvent"))) {
-            getButtonName = getIntent().getStringExtra("nameEvent");
+        if (null != getIntent() && !TextUtils.isEmpty(getIntent().getStringExtra(EVENT))) {
+            getButtonName = getIntent().getStringExtra(EVENT);
             btn_event.setText(getButtonName);
+        }
+
+        if (null != getIntent() && !TextUtils.isEmpty(getIntent().getStringExtra(GUEST))) {
+            getGetButtonNameGuest = getIntent().getStringExtra(GUEST);
+            btn_guest.setText(getGetButtonNameGuest);
         }
 
         if (null != getIntent() && !TextUtils.isEmpty(getIntent().getStringExtra(NAME))) {
@@ -63,8 +71,11 @@ public class EventGuestActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(EventGuestActivity.this, EventActivity.class);
                 nameSave = tv_username.getText().toString();
+                eventSave = btn_event.getText().toString();
                 SharedPreferences.Editor editor = mSharedPreferences.edit();
                 editor.putString(NAME, nameSave);
+                editor.putString(EVENT, eventSave);
+
                 editor.commit();
                 startActivity(intent);
             }
@@ -74,7 +85,12 @@ public class EventGuestActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(EventGuestActivity.this, GuestActivity.class);
-
+                nameSave = tv_username.getText().toString();
+                guestSave = btn_guest.getText().toString();
+                SharedPreferences.Editor editor = mSharedPreferences.edit();
+                editor.putString(NAME, nameSave);
+                editor.putString(GUEST, guestSave);
+                editor.commit();
                 startActivity(intent);
             }
         });

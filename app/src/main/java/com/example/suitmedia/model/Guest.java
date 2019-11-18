@@ -12,7 +12,7 @@ public class Guest {
 
     @SerializedName("birthdate")
     @Expose
-    private String birthdate;
+    private int birthdate;
 
     @SerializedName("Image dummy")
     @Expose
@@ -26,11 +26,11 @@ public class Guest {
         this.nama = nama;
     }
 
-    public String getBirthdate() {
+    public int getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(String birthdate) {
+    public void setBirthdate(int birthdate) {
         this.birthdate = birthdate;
     }
 
@@ -42,7 +42,7 @@ public class Guest {
         this.imageDummy = imageDummy;
     }
 
-    public Guest(String nama, String birthdate, String imageDummy) {
+    public Guest(String nama, int birthdate, String imageDummy) {
         this.nama = nama;
         this.birthdate = birthdate;
         this.imageDummy = imageDummy;

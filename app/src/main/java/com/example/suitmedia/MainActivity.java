@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,7 +37,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String name = et_name.getText().toString();
-                Toast.makeText(MainActivity.this, "Hello" + name, Toast.LENGTH_SHORT).show();
+                if (TextUtils.isEmpty(name)){
+                    et_name.setError("Enter Name !!");
+                    return;
+                }
+                et_name.setText("");
+                Toast.makeText(MainActivity.this, "Hello " + name, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, EventGuestActivity.class);
                 intent.putExtra(NAME,name );
                 startActivity(intent);

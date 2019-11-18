@@ -1,13 +1,10 @@
-package com.example.suitmedia;
+package com.example.suitmedia.rest;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface HerokuService {
-
-    @GET("hello")
-    Call<ResponseBody> hello();
 
     @GET("name")
     Call<ResponseBody> name();
