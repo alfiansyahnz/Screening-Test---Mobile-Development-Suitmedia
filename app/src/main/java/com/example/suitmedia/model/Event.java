@@ -1,4 +1,4 @@
-package com.example.suitmedia;
+package com.example.suitmedia.model;
 
 public class Event {
 

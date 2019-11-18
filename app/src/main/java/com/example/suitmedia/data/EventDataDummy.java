@@ -1,4 +1,6 @@
-package com.example.suitmedia;
+package com.example.suitmedia.data;
+
+import com.example.suitmedia.model.Event;
 
 import java.util.ArrayList;
 

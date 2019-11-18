@@ -1,4 +1,4 @@
-package com.example.suitmedia;
+package com.example.suitmedia.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,8 +13,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-
-import org.w3c.dom.Text;
+import com.example.suitmedia.model.Event;
+import com.example.suitmedia.EventGuestActivity;
+import com.example.suitmedia.R;
 
 import java.util.ArrayList;
 

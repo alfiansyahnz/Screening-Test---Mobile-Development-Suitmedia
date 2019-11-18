@@ -5,8 +5,11 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.example.suitmedia.adapter.EventAdapter;
+import com.example.suitmedia.data.EventDataDummy;
+import com.example.suitmedia.model.Event;
+
 import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
