@@ -42,10 +42,6 @@ public class GuestAdapter extends RecyclerView.Adapter<GuestAdapter.GuestViewHol
 
     }
 
-    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
-        this.onItemClickCallback = onItemClickCallback;
-    }
-
 
     @NonNull
     @Override
@@ -56,12 +52,12 @@ public class GuestAdapter extends RecyclerView.Adapter<GuestAdapter.GuestViewHol
 
     @Override
     public void onBindViewHolder(@NonNull final GuestViewHolder holder, int i) {
-        final Event event = listEvent.get(i);
+        final Guest guest = isiGuest.get(i);
         Glide.with(holder.itemView.getContext())
                 .load(listEvent.get(i).getImage())
                 .apply(new RequestOptions().override(350, 550))
                 .into(holder.mImageViewGrid);
-        holder.mTextViewGrid.setText(event.getNama());
+        holder.mTextViewGrid.setText(guest.getNama());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,7 +65,7 @@ public class GuestAdapter extends RecyclerView.Adapter<GuestAdapter.GuestViewHol
                 onItemClickCallback.onItemClicked(isiGuest.get(holder.getAdapterPosition()));
                 Context mContext = v.getContext();
                 Intent i = new Intent(mContext, EventGuestActivity.class);
-                i.putExtra("nameGuest", event.getNama());
+                i.putExtra("nameGuest", guest.getNama());
                 mContext.startActivity(i);
             }
         });

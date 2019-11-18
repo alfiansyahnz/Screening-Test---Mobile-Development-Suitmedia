@@ -35,7 +35,7 @@ public class GuestActivity extends AppCompatActivity {
     RecyclerView mRecyclerView;
 
     private ArrayList<Event> list = new ArrayList<>();
-    boolean isFetchingMovies;
+    boolean isFetchingGuest;
     GuestRepository mGuestRepository;
     private GuestAdapter adapter;
 
@@ -45,15 +45,13 @@ public class GuestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_guest);
         ButterKnife.bind(this);
 
-
+        mGuestRepository = GuestRepository.getInstance();
+        mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         getGuest();
 //        list.addAll(EventDataDummy.getData());
     }
 
-    private void showSelectedHero(Event data) {
-        Toast.makeText(this, "Kamu Memilih" + data.getNama(), Toast.LENGTH_SHORT).show();
-    }
 
 //    private void showRecycleGrid() {
 //        mRecyclerView.setLayoutManager(new GridLayoutManager(this, 2));
@@ -70,17 +68,13 @@ public class GuestActivity extends AppCompatActivity {
 //    }
 
     private void getGuest() {
-        isFetchingMovies = true;
+        isFetchingGuest = true;
         mGuestRepository.getGuest(new OnGetGuestCallback() {
             @Override
             public void onSuccess(List<Guest> guest) {
-                if (adapter == null) {
-                    adapter = new GuestAdapter(guest ,callback);
-
-                    mRecyclerView.setAdapter(adapter);
-                }
-                isFetchingMovies = false;
-
+                adapter = new GuestAdapter(guest ,callback);
+                mRecyclerView.setAdapter(adapter);
+                isFetchingGuest = false;
             }
 
             @Override

@@ -14,12 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class GuestRepository {
 
-    private static final String BASE_URL = " http://dry-sierra-6832.herokuapp.com/api/people";
-    private static final String LANGUAGE = "en-US";
-    public static final String POPULAR = "popular";
-    public static final String TOP_RATED = "top_rated";
-    public static final String UPCOMING = "upcoming";
-
+    private static final String BASE_URL = " http://dry-sierra-6832.herokuapp.com/";
     private Api api;
     private static GuestRepository repository;
 
@@ -28,14 +23,13 @@ public class GuestRepository {
     }
 
     public static GuestRepository getInstance() {
-        if (repository == null) {
+
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 
             repository = new GuestRepository(retrofit.create(Api.class));
-        }
 
         return repository;
     }
