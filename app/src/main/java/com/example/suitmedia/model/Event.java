@@ -2,15 +2,16 @@ package com.example.suitmedia.model;
 
 public class Event {
 
-    private String nama, image, tanggal;
+    private String nama, tanggal;
+    private int image;
 
     public Event() {
     }
 
-    public Event(String nama, String image, String tanggal) {
+    public Event(String nama, String tanggal, int image) {
         this.nama = nama;
-        this.image = image;
         this.tanggal = tanggal;
+        this.image = image;
     }
 
     public String getNama() {
@@ -21,11 +22,11 @@ public class Event {
         this.nama = nama;
     }
 
-    public String getImage() {
+    public int getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(int image) {
         this.image = image;
     }
 

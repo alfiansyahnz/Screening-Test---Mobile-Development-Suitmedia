@@ -1,5 +1,7 @@
 package com.example.suitmedia.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,28 +12,25 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.suitmedia.EventGuestActivity;
 import com.example.suitmedia.R;
 import com.example.suitmedia.callback.OnItemClickCallback;
 import com.example.suitmedia.model.Event;
 import com.example.suitmedia.model.Guest;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class GuestAdapter extends RecyclerView.Adapter<GuestAdapter.GuestViewHolder> {
-    private ArrayList<Guest> mGuestArrayList;
+    private List<Guest> mGuestArrayList;
     private ArrayList<Event> mEventArrayList;
-    private OnItemClickCallback mOnItemClickCallback;
 
-    public void setOnItemClickCallback(OnItemClickCallback onItemClickCallback) {
-        this.mOnItemClickCallback= onItemClickCallback;
-    }
-
-    public GuestAdapter(ArrayList<Guest> guestArrayList, ArrayList<Event> eventArrayList) {
-        mGuestArrayList = guestArrayList;
-        mEventArrayList = eventArrayList;
+    public GuestAdapter(List<Guest> guestArrayList, ArrayList<Event> eventArrayList) {
+        this.mGuestArrayList = guestArrayList;
+        this.mEventArrayList = eventArrayList;
     }
 
     @NonNull
@@ -43,21 +42,37 @@ public class GuestAdapter extends RecyclerView.Adapter<GuestAdapter.GuestViewHol
 
     @Override
     public void onBindViewHolder(@NonNull final GuestViewHolder holder, int i) {
-        Guest guest = mGuestArrayList.get(i);
-        Event event = mEventArrayList.get(i);
-        Glide.with(holder.itemView.getContext())
-                .load(event.getImage())
-                .apply(new RequestOptions().override(350, 550))
-                .into(holder.mImageView);
+        final Guest guest = mGuestArrayList.get(i);
         holder.mTextView.setText(guest.getName());
+
+        switch (guest.getName()) {
+            case "Andi":
+                holder.mImageView.setBackgroundResource(R.drawable.concert);
+                break;
+            case "Budi":
+                holder.mImageView.setBackgroundResource(R.drawable.livemusic);
+                break;
+            case "Charlie":
+                holder.mImageView.setBackgroundResource(R.drawable.cocktails);
+                break;
+            case "Dede":
+                holder.mImageView.setBackgroundResource(R.drawable.fairground);
+                break;
+            case "Joko":
+                holder.mImageView.setBackgroundResource(R.drawable.concert2);
+                break;
+        }
+
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mOnItemClickCallback.onItemClicked(mGuestArrayList.get(holder.getAdapterPosition()));
+                Context mContext = v.getContext();
+                Intent i = new Intent(mContext, EventGuestActivity.class);
+                i.putExtra("nameGuest", guest.getName());
+                mContext.startActivity(i);
             }
         });
-
     }
 
     @Override
@@ -68,7 +83,6 @@ public class GuestAdapter extends RecyclerView.Adapter<GuestAdapter.GuestViewHol
     class GuestViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.img_item_photo_grid)
         ImageView mImageView;
-
         @BindView(R.id.tv_nama_grid)
         TextView mTextView;
 

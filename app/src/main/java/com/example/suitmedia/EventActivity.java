@@ -10,6 +10,7 @@ import com.example.suitmedia.data.EventDataDummy;
 import com.example.suitmedia.model.Event;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,7 +30,7 @@ public class EventActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         getSupportActionBar().setTitle("Event");
-        list.addAll(EventDataDummy.getData());
+        list.addAll(EventDataDummy.mEventList());
         showList();
 
     }
@@ -41,7 +42,6 @@ public class EventActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mEventAdapter);
 
     }
-
 
 
 }

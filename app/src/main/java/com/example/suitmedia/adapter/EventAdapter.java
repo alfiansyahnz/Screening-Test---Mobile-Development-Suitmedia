@@ -18,6 +18,7 @@ import com.example.suitmedia.EventGuestActivity;
 import com.example.suitmedia.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,6 +30,11 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
     public EventAdapter(ArrayList<Event> isi) {
         this.isievent = isi;
     }
+
+//    public void updateData(List<Event> eventsList) {
+//        this.isievent = eventsList;
+//        notifyDataSetChanged();
+//    }
 
     @NonNull
     @Override

@@ -16,10 +16,19 @@ public class Guest{
 	private String birthdate;
 
 
+	@SerializedName("image")
+	@Expose
+	private String image;
+
+
 	public Guest(Integer id, String name, String birthdate) {
 		this.id = id;
 		this.name = name;
 		this.birthdate = birthdate;
+	}
+
+	public Guest() {
+
 	}
 
 	public Integer getId() {
@@ -44,5 +53,12 @@ public class Guest{
 
 	public void setBirthdate(String birthdate) {
 		this.birthdate = birthdate;
+	}
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 }

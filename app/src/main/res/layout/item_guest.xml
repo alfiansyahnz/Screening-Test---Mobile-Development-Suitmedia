@@ -9,14 +9,14 @@
         android:id="@+id/img_item_photo_grid"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:scaleType="centerCrop"
-        android:src="@color/colorAccent"/>
+        android:scaleType="centerCrop" />
 
     <TextView
         android:id="@+id/tv_nama_grid"
         android:layout_centerVertical="true"
         android:textSize="20dp"
         android:textAlignment="center"
+        android:textColor="@color/colorWhite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/app_name"/>
