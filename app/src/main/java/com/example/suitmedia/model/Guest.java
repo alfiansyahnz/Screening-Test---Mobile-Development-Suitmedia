@@ -3,48 +3,46 @@ package com.example.suitmedia.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Guest {
+public class Guest{
+
+	@SerializedName("id")
+	@Expose
+	private Integer id;
+	@SerializedName("name")
+	@Expose
+	private String name;
+	@SerializedName("birthdate")
+	@Expose
+	private String birthdate;
 
 
-    @SerializedName("nama")
-    @Expose
-    private String nama ;
+	public Guest(Integer id, String name, String birthdate) {
+		this.id = id;
+		this.name = name;
+		this.birthdate = birthdate;
+	}
 
-    @SerializedName("birthdate")
-    @Expose
-    private int birthdate;
+	public Integer getId() {
+		return id;
+	}
 
-    @SerializedName("Image dummy")
-    @Expose
-    private String imageDummy;
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public String getNama() {
-        return nama;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setNama(String nama) {
-        this.nama = nama;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public int getBirthdate() {
-        return birthdate;
-    }
+	public String getBirthdate() {
+		return birthdate;
+	}
 
-    public void setBirthdate(int birthdate) {
-        this.birthdate = birthdate;
-    }
-
-    public String getImageDummy() {
-        return imageDummy;
-    }
-
-    public void setImageDummy(String imageDummy) {
-        this.imageDummy = imageDummy;
-    }
-
-    public Guest(String nama, int birthdate, String imageDummy) {
-        this.nama = nama;
-        this.birthdate = birthdate;
-        this.imageDummy = imageDummy;
-    }
+	public void setBirthdate(String birthdate) {
+		this.birthdate = birthdate;
+	}
 }
