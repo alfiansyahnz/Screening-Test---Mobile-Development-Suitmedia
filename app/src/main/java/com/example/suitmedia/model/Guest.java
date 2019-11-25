@@ -3,62 +3,50 @@ package com.example.suitmedia.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Guest{
+public class Guest {
 
-	@SerializedName("id")
-	@Expose
-	private Integer id;
-	@SerializedName("name")
-	@Expose
-	private String name;
-	@SerializedName("birthdate")
-	@Expose
-	private String birthdate;
+    @SerializedName("id")
+    @Expose
+    private Integer id;
+    @SerializedName("name")
+    @Expose
+    private String name;
+    @SerializedName("birthdate")
+    @Expose
+    private String birthdate;
 
+    public Guest(Integer id, String name, String birthdate) {
+        this.id = id;
+        this.name = name;
+        this.birthdate = birthdate;
+    }
 
-	@SerializedName("image")
-	@Expose
-	private String image;
+    public Guest() {
 
+    }
 
-	public Guest(Integer id, String name, String birthdate) {
-		this.id = id;
-		this.name = name;
-		this.birthdate = birthdate;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public Guest() {
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	}
+    public String getName() {
+        return name;
+    }
 
-	public Integer getId() {
-		return id;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public String getBirthdate() {
+        return birthdate;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setBirthdate(String birthdate) {
+        this.birthdate = birthdate;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getBirthdate() {
-		return birthdate;
-	}
-
-	public void setBirthdate(String birthdate) {
-		this.birthdate = birthdate;
-	}
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
-	}
 }

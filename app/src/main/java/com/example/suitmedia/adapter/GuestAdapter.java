@@ -18,6 +18,7 @@ import com.example.suitmedia.callback.OnItemClickCallback;
 import com.example.suitmedia.model.Event;
 import com.example.suitmedia.model.Guest;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,7 +45,6 @@ public class GuestAdapter extends RecyclerView.Adapter<GuestAdapter.GuestViewHol
     public void onBindViewHolder(@NonNull final GuestViewHolder holder, int i) {
         final Guest guest = mGuestArrayList.get(i);
         holder.mTextView.setText(guest.getName());
-
         switch (guest.getName()) {
             case "Andi":
                 holder.mImageView.setBackgroundResource(R.drawable.concert);
@@ -70,6 +70,7 @@ public class GuestAdapter extends RecyclerView.Adapter<GuestAdapter.GuestViewHol
                 Context mContext = v.getContext();
                 Intent i = new Intent(mContext, EventGuestActivity.class);
                 i.putExtra("nameGuest", guest.getName());
+                i.putExtra("birthdateGuest", guest.getBirthdate());
                 mContext.startActivity(i);
             }
         });
@@ -92,3 +93,4 @@ public class GuestAdapter extends RecyclerView.Adapter<GuestAdapter.GuestViewHol
         }
     }
 }
+

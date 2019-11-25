@@ -77,15 +77,6 @@ public class GuestActivity extends AppCompatActivity {
         });
     }
 
-//    public void logic(int tgl) {
-//
-//        if (tgl % 2 == 0 && tgl % 3 == 0) {
-//            Toast.makeText(null, "iOS", Toast.LENGTH_LONG).show();
-//        } else if (tgl % 3 == 0) {
-//            Toast.makeText(null, "Android", Toast.LENGTH_LONG).show();
-//        } else if (tgl % 2 == 0) {
-//            Toast.makeText(null, "Blackberry", Toast.LENGTH_SHORT).show();
-//        }
-//    }
+
 }
 
