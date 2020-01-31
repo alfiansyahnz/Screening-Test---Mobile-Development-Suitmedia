@@ -10,15 +10,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.example.suitmedia.EventGuestActivity;
 import com.example.suitmedia.R;
-import com.example.suitmedia.callback.OnItemClickCallback;
 import com.example.suitmedia.model.Event;
 import com.example.suitmedia.model.Guest;
 
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 

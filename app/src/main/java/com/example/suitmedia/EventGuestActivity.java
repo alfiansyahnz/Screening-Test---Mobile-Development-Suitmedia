@@ -4,18 +4,15 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -94,7 +91,7 @@ public class EventGuestActivity extends AppCompatActivity {
                 editor.putString(NAME, nameSave);
                 editor.putString(EVENT, eventSave);
 
-                editor.commit();
+                editor.apply();
                 startActivity(intent);
             }
         });
@@ -108,7 +105,7 @@ public class EventGuestActivity extends AppCompatActivity {
                 SharedPreferences.Editor editor = mSharedPreferences.edit();
                 editor.putString(NAME, nameSave);
                 editor.putString(GUEST, guestSave);
-                editor.commit();
+                editor.apply();
                 startActivity(intent);
             }
         });
