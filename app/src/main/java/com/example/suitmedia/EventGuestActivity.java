@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -42,7 +43,7 @@ public class EventGuestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_event_guest);
         ButterKnife.bind(this);
 
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
 
         if (null != getIntent() && !TextUtils.isEmpty(getIntent().getStringExtra(EVENT))) {
             getButtonName = getIntent().getStringExtra(EVENT);
