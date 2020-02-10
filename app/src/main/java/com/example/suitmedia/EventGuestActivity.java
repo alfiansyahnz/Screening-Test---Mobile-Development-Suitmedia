@@ -72,7 +72,7 @@ public class EventGuestActivity extends AppCompatActivity {
         if (null != getIntent() && !TextUtils.isEmpty(getIntent().getStringExtra(NAME))) {
             getUsername = getIntent().getStringExtra(NAME);
             tv_username.setText(getUsername);
-            mSharedPreferences = getSharedPreferences("mypref", 0);
+            mSharedPreferences = getSharedPreferences(myprefrence,0);
             mSharedPreferences.edit().remove(NAME).apply();
         }
         mSharedPreferences = getSharedPreferences(myprefrence, Context.MODE_PRIVATE);
