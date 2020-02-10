@@ -75,7 +75,6 @@ public class EventGuestActivity extends AppCompatActivity {
             mSharedPreferences = getSharedPreferences("mypref", 0);
             mSharedPreferences.edit().remove(NAME).apply();
         }
-
         mSharedPreferences = getSharedPreferences(myprefrence, Context.MODE_PRIVATE);
         if (mSharedPreferences.contains(NAME)) {
             tv_username.setText(mSharedPreferences.getString(NAME, ""));
@@ -88,6 +87,7 @@ public class EventGuestActivity extends AppCompatActivity {
                 Intent intent = new Intent(EventGuestActivity.this, EventActivity.class);
                 nameSave = tv_username.getText().toString();
                 eventSave = btn_event.getText().toString();
+
                 SharedPreferences.Editor editor = mSharedPreferences.edit();
                 editor.putString(NAME, nameSave);
                 editor.putString(EVENT, eventSave);

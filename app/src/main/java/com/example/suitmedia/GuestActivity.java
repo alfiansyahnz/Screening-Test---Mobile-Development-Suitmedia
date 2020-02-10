@@ -1,14 +1,13 @@
 package com.example.suitmedia;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.example.suitmedia.adapter.GuestAdapter;
-import com.example.suitmedia.callback.OnItemClickCallback;
 import com.example.suitmedia.model.Event;
 import com.example.suitmedia.model.Guest;
 import com.example.suitmedia.rest.ApiClient;
@@ -22,7 +21,6 @@ import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class GuestActivity extends AppCompatActivity {
 
@@ -65,7 +63,7 @@ public class GuestActivity extends AppCompatActivity {
                 Log.w("GuestActivity", "onResponse: " + response);
                 if (response.isSuccessful()) {
                     List<Guest> guestList = response.body();
-                    adapter = new GuestAdapter(guestList , listEvent);
+                    adapter = new GuestAdapter(guestList, listEvent);
                     mRecyclerView.setAdapter(adapter);
                 }
             }
